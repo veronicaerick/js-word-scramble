@@ -15,29 +15,30 @@
         function getRandomIntInclusive(min, max) {
             return Math.floor(Math.random() * (max - min + 1)) + min;
         }
-
-        // Calling our function from above to grab a random number between 0 and 3
-        var ourRandomNumber = getRandomIntInclusive(0,3);
-    
-        // Grab a random word from the WORDS array
-        var myWord = WORDS[ourRandomNumber];
-
-        // Grab the corresponding scrambled word from the SCRAMBLED array
-        var myScrambledWord = SCRAMBLED[ourRandomNumber];
         
         var playing = true;
-        // Enter word guessing game 
+        // Enter word guessing game. 
+
         while (playing) {
+
+            // Calling our function from above to grab a random number between 0 and 3
+            var ourRandomNumber = getRandomIntInclusive(0,3);
+        
+            // Grab a random word from the WORDS array
+            var myWord = WORDS[ourRandomNumber];
+
+            // Grab the corresponding scrambled word from the SCRAMBLED array
+            var myScrambledWord = SCRAMBLED[ourRandomNumber];
             // Giving user the scrambled word to guess
             alert("Here is the scrambled word, guess it " + myScrambledWord);
             
             // prompt the user to guess the original word when given the scrambled word
             var userAnswer = prompt("Go for it:");
-            
+            userAnswer = userAnswer.toLowerCase().trim();        
+            console.log(userAnswer);
             // Comparing the users guess to the correct word, if they guessed correctly they are congratulated. Otherwise they are prompted to keep guessing
             if (userAnswer === myWord) {
                 alert("You guessed the word " + myWord);
-                playing = false;
             } else {
                 alert("Keep guessing!")
             }
